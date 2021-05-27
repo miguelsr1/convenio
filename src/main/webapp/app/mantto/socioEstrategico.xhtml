@@ -1,0 +1,176 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    template="#{pageContext.servletContext.contextPath}/resources/template/template.xhtml"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="content">
+        <div class="p-grid">
+            <div class="p-col-12">
+                <div class="card ui-fluid">
+                    <h5>Horizontal</h5>
+
+                    <div class="ui-fluid p-formgrid p-grid">
+                        <div class="p-col-12 p-xl-8">
+                            <div class="p-field p-grid">
+                                <p:outputLabel for="name3" styleClass="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Nombre</p:outputLabel>
+                                <div class="p-col-12 p-md-10">
+                                    <p:inputText id="name3" value="#{socioEstrategicoView.representanteSocio.socioEstrategico.nombreSocio}" />
+                                </div>
+                            </div>
+                            <div class="p-field p-grid">
+                                <p:outputLabel for="email3" styleClass="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Siglas</p:outputLabel>
+                                <div class="p-col-12 p-md-10">
+                                    <p:inputText id="email3" value="#{socioEstrategicoView.representanteSocio.socioEstrategico.siglasSocio}"/>
+                                </div>
+                            </div>
+                            <div class="p-field p-grid">
+                                <p:outputLabel for="txtNit" styleClass="p-col-12 p-mb-2 p-md-2 p-mb-md-0">NIT</p:outputLabel>
+                                <div class="p-col-12 p-md-10">
+                                    <p:inputMask id="txtNit" mask="9999-999999-999-9" value="#{socioEstrategicoView.representanteSocio.socioEstrategico.nitSocio}"/>
+                                </div>
+                            </div>
+                            <div class="p-field p-grid">
+                                <p:outputLabel for="txtTelefono" styleClass="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Teléfono</p:outputLabel>
+                                <div class="p-col-12 p-md-10">
+                                    <p:inputMask id="txtTelefono" mask="9999-9999" value="#{socioEstrategicoView.representanteSocio.socioEstrategico.telefonoSocio}"/>
+                                </div>
+                            </div>
+                            <div class="p-field p-grid">
+                                <p:outputLabel for="txtCorreo" styleClass="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Correo</p:outputLabel>
+                                <div class="p-col-12 p-md-10">
+                                    <p:inputText id="txtCorreo"  label="email" required="true" value="#{socioEstrategicoView.representanteSocio.socioEstrategico.correoSocio}"
+                                                 validatorMessage="Formato de correo invalido">
+                                        <f:validateRegex
+                                            pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                                    </p:inputText>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-col-12  p-xl-4" style="text-align: center !important">
+                            <p:graphicImage library="demo" value="/DynamicImageServlet?file=#{bundle['path_images']}#{socioEstrategicoView.representanteSocio.socioEstrategico.rutaLogoSocio}" width="180"/>
+                            <br/>
+                            <p:commandButton value="Cargar" style="width: 100px;" />
+                        </div>
+                    </div>
+
+
+
+                    <div class="p-field p-grid">
+                        <p:outputLabel for="txtDirrecion" styleClass="p-col-12 p-mb-2 p-md-2 p-mb-md-0">#{bundle['direccion']}</p:outputLabel>
+                        <div class="p-col-12 p-md-10">
+                            <p:inputText id="txtDirrecion" value="#{socioEstrategicoView.representanteSocio.socioEstrategico.direccionSocio}"/>
+                        </div>
+                    </div>
+                    <div class="p-field p-grid">
+                        <p:outputLabel for="txtOficina" styleClass="p-col-12 p-mb-2 p-md-2 p-mb-md-0">#{bundle['oficina_enlace']}</p:outputLabel>
+                        <div class="p-col-12 p-md-10">
+                            <p:inputText id="txtOficina" value="#{socioEstrategicoView.representanteSocio.socioEstrategico.oficinaEnlace}"/>
+                        </div>
+                    </div>
+
+                    <h6>Representante Legal socio estratégico</h6>
+
+                    <div class="ui-fluid p-formgrid p-grid">
+                        <div class="p-col-12 p-xl-8">
+                            <div class="p-field p-grid">
+                                <p:outputLabel for="txtNom" styleClass="p-col-12 p-mb-4 p-md-4 p-mb-md-0">Nombre</p:outputLabel>
+                                <div class="p-col-12 p-md-8">
+                                    <p:inputText id="txtNom" value="#{socioEstrategicoView.representanteSocio.nombresRepresentanteSocio}"/>
+                                </div>
+                            </div>
+                            <div class="p-field p-grid">
+                                <p:outputLabel for="txtRepre" styleClass="p-col-12 p-mb-4 p-md-4 p-mb-md-0">Representación</p:outputLabel>
+                                <div class="p-col-12 p-md-8">
+                                    <p:inputText id="txtRepre" value="#{socioEstrategicoView.representanteSocio.representacion}"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-col-12 p-xl-4">
+                            <div class="p-field p-grid">
+                                <p:outputLabel for="txtDui" styleClass="p-col-12 p-mb-2 p-md-2 p-mb-md-0">DUI</p:outputLabel>
+                                <div class="p-col-12 p-md-10">
+                                    <p:inputMask id="txtDui" mask="99999999-9" value="#{socioEstrategicoView.representanteSocio.duiRepresentanteSocio}"/>
+                                </div>
+                            </div>
+                            <div class="p-field p-grid">
+                                <p:outputLabel for="txtNit2" styleClass="p-col-12 p-mb-2 p-md-2 p-mb-md-0">NIT</p:outputLabel>
+                                <div class="p-col-12 p-md-10">
+                                    <p:inputMask id="txtNit2" mask="9999-999999-999-9" value="#{socioEstrategicoView.representanteSocio.nitRepresentanteSocio}"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-field p-grid">
+                        <p:outputLabel for="txtDomicilio" styleClass="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Domicilio</p:outputLabel>
+                        <div class="p-col-12 p-md-10">
+                            <p:inputText id="txtDomicilio" value="#{socioEstrategicoView.representanteSocio.domicilioRepresentanteSocio}"/>
+                        </div>
+                    </div>
+
+                    <div class="ui-fluid p-formgrid p-grid">
+                        <div class="p-col-12 p-xl-6">
+                            <div class="p-field p-grid">
+                                <p:outputLabel for="cboDepa" styleClass="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Departamento</p:outputLabel>
+                                <div class="p-col-12 p-md-10">
+                                    <p:selectOneMenu id="cboDepa" value="#{socioEstrategicoView.representanteSocio.departamentoRepresentanteSocio}">
+                                        <f:selectItem itemLabel="Seleccione un valor"/>
+                                    </p:selectOneMenu>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-col-12 p-xl-6">
+                            <div class="p-field p-grid">
+                                <p:outputLabel for="cboMunicipio" styleClass="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Municipio</p:outputLabel>
+                                <div class="p-col-12 p-md-10">
+                                    <p:selectOneMenu id="cboMunicipio" value="#{socioEstrategicoView.representanteSocio.municipioRepresentanteSocio}">
+                                        <f:selectItem itemLabel="Seleccione un valor"/>
+                                    </p:selectOneMenu>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h6>Estatutos o acuerdo ejecutivo (según sea el caso)</h6>
+                    <div class="p-field p-grid">
+                        <div class="p-col-12 p-md-12">
+                            <p:inputTextarea id="txaAcuerdo" rows="3" value="#{socioEstrategicoView.representanteSocio.socioEstrategico.estatutosSocio}"/>
+                        </div>
+                    </div>
+
+                    <h6>Credenciales</h6>
+                    <div class="p-field p-grid">
+                        <div class="p-col-12 p-md-12">
+                            <p:inputTextarea rows="3" value="#{socioEstrategicoView.representanteSocio.socioEstrategico.credencialesSocio}"/>
+                        </div>
+                    </div>
+
+                    <div class="ui-fluid p-formgrid p-grid">
+                        <div class="p-col-12">
+                            <div class="p-field p-grid">
+                                <p:outputLabel for="cboTipoSocio" styleClass="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Tipo de socio</p:outputLabel>
+                                <div class="p-col-12 p-md-10">
+                                    <p:selectOneMenu id="cboTipoSocio" value="#{socioEstrategicoView.idTipoSocio}">
+                                        <f:selectItem itemLabel="Seleccione un valor"/>
+                                        <f:selectItems value="#{socioEstrategicoView.lstTipoSocio}" var="tipo" itemValue="#{tipo.idTipoSocio}" itemLabel="#{tipo.nombreTipo}"/>
+                                    </p:selectOneMenu>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="p-d-flex p-ai-center p-flex-wrap">
+                        <p:commandButton value="Guardar" style="width: 100px;" styleClass="p-mr-2 custom-chip" icon="pi pi-save"
+                                         action="#{socioEstrategicoView.guadar}" />
+
+                        <p:commandButton value="Cancelar" style="width: 100px;" styleClass="p-mr-2 custom-chip" icon="pi pi-times" 
+                                         process="@this" action="lstSocios.mined"/>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

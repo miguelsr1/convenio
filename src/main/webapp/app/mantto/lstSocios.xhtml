@@ -1,0 +1,36 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    template="#{pageContext.servletContext.contextPath}/resources/template/template.xhtml"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="content">
+        <div class="p-grid crud-demo">
+            <div class="p-col-12">
+                <div class="card ui-fluid">
+                    <h5>Horizontal</h5>
+
+                    <p:toolbar styleClass="p-mb-4">
+                        <p:toolbarGroup>
+                            <p:commandButton value="New" icon="pi pi-plus" action="socioEstrategico.mined"
+                                             styleClass="ui-button-success" style="margin-right: .5rem" />
+                            <p:commandButton id="delete-products-button" value="#{crudDemoView.deleteButtonMessage}" icon="pi pi-trash" actionListener="#{crudDemoView.deleteSelectedProducts}"
+                                             styleClass="ui-button-danger" disabled="#{!crudDemoView.hasSelectedProducts()}" update="@this">
+                                <p:confirm header="Confirmation" message="Delete the selected products?" icon="pi pi-exclamation-triangle" />
+                            </p:commandButton>
+                        </p:toolbarGroup>
+                    </p:toolbar>
+
+                    <p:dataTable value="#{listadoSocioView.listadoSocios}" var="socio">
+                        <p:column headerText="Nombre">
+                            <p:outputLabel value="#{socio.nombreSocio}"/>
+                        </p:column>
+                        <p:column headerText="N.I.T.">
+                            <p:outputLabel value="#{socio.nitSocio}"/>
+                        </p:column>
+                    </p:dataTable>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>
