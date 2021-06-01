@@ -1,0 +1,38 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    template="#{pageContext.servletContext.contextPath}/resources/template/template.xhtml"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:jsf="http://xmlns.jcp.org/jsf">
+    <ui:define name="content">
+        <div class="p-grid">
+            <div class="p-col-12">
+                <div class="card ui-fluid">
+                    <h5>Test</h5>
+                    
+                    <div class="p-field p-grid">
+                        <p:outputLabel for="txtMetodo" styleClass="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Nombre método</p:outputLabel>
+                        <div class="p-col-12 p-md-10">
+                            <p:inputText id="txtMetodo" value="#{testRestView.metodo}"/>
+                        </div>
+                    </div>
+                    <div class="p-field p-grid">
+                        <p:outputLabel for="txtOficina" styleClass="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Parametro Json</p:outputLabel>
+                        <div class="p-col-12 p-md-10">
+                            <p:inputText id="txtOficina" value="#{testRestView.json}"/>
+                        </div>
+                    </div>
+                    <div class="p-field p-grid">
+                        <p:commandButton action="#{testRestView.auth()}" value="Aceptar" update="resultado"/>
+                    </div>
+                    
+                    <br/><br/>
+                    <div class="p-field p-grid" jsf:id="resultado">
+                        <p:inputTextarea id="txaResultado" value="#{testRestView.resultado}" rows="30"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>
